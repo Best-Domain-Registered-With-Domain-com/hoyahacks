@@ -2,10 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import React, {Component} from 'react';
+import Notification from './notification.js';
+import ReactDOM from 'react-dom';
 
 
-function shoot() {
-  alert("Great! You just strengthened your relationship.");
+function shoot(){
+  alert(Notification.state.message);
 }
 
 
@@ -24,11 +26,15 @@ class App extends Component {
             Your friend, Not Ben: 
             <button onClick={shoot}>Text your friend!</button>
           </div>
+          <div className="containers"><Notification /></div>
 
       </div>
       
     );
   }
 }
+
+
+ReactDOM.render(<Notification />, document.getElementById('root'));
 
 export default App;
